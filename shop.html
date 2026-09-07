@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه | روغنکده رئوف</title>
+    <meta name="description" content="فروشگاه محصولات سنتی و طبیعی روغنکده رئوف — فیلتر بر اساس دسته‌بندی و قیمت">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23E4B027' d='M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2Z'/></svg>">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <script src="assets/js/tailwind-config.js"></script> -->
+     <link rel="stylesheet" href="assets/css/output.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+</head>
+
+<body data-page="shop" class="bg-cream text-forest overflow-x-hidden antialiased">
+
+    <div id="site-header"></div>
+
+    <main>
+        <!-- هیروی کوچک -->
+        <section class="relative bg-forest text-cream overflow-hidden">
+            <div class="absolute inset-0 pattern-dots opacity-60 pointer-events-none"></div>
+            <div class="relative max-w-7xl mx-auto px-4 py-10 lg:py-14">
+                <nav class="flex items-center gap-2 text-xs text-cream/60">
+                    <a href="index.html" class="hover:text-gold">خانه</a>
+                    <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+                    <span class="text-gold font-bold">فروشگاه</span>
+                </nav>
+                <h1 class="mt-4 text-3xl lg:text-4xl font-black gold-grad-text">فروشگاه روغنکدهٔ رئوف</h1>
+                <p class="mt-3 text-cream/70 max-w-xl leading-8 text-sm sm:text-base">تمام محصولات ما سردپرس، سنتی و
+                    بدون مواد افزودنی‌اند؛ با فیلترهای زیر دقیقاً همان چیزی را پیدا کنید که می‌خواهید.</p>
+            </div>
+        </section>
+
+        <!-- بدنهٔ فروشگاه: سایدبار فیلتر + گرید -->
+        <div class="max-w-7xl mx-auto px-4 py-8 lg:py-12 grid lg:grid-cols-[265px_1fr] gap-8 items-start relative">
+            <div id="shop-ov"></div>
+
+            <!-- سایدبار (دسکتاپ: ثابت / موبایل: آفکانواس) -->
+            <aside id="shop-sidebar">
+                <div class="bg-white rounded-2xl shadow-card p-5">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-black text-forest flex items-center gap-2"><i data-lucide="filter"
+                                class="w-5 h-5 text-goldd"></i> فیلترها</h3>
+                        <button id="sidebar-close"
+                            class="lg:hidden w-9 h-9 rounded-lg grid place-items-center text-forest/50 hover:bg-cream"
+                            aria-label="بستن"><i data-lucide="x" class="w-5 h-5"></i></button>
+                    </div>
+
+                    <p class="text-xs font-black text-forest/45 mt-6 mb-2 tracking-wide">دسته‌بندی محصول</p>
+                    <div id="cat-filters" class="divide-y divide-forest/5"></div>
+
+                    <p class="text-xs font-black text-forest/45 mt-6 mb-3 tracking-wide">بازهٔ قیمت (تومان)</p>
+                    <div class="flex items-center gap-2">
+                        <input id="price-min" type="number" inputmode="numeric" placeholder="از" class="price-in"
+                            min="0">
+                        <span class="text-forest/30">—</span>
+                        <input id="price-max" type="number" inputmode="numeric" placeholder="تا" class="price-in"
+                            min="0">
+                    </div>
+                    <button id="price-apply"
+                        class="w-full mt-4 h-11 rounded-xl bg-forest text-gold font-bold text-sm hover:bg-moss transition">اعمال
+                        فیلتر قیمت</button>
+                    <button id="filters-reset"
+                        class="w-full mt-2 h-11 rounded-xl border border-forest/15 text-forest/70 font-bold text-sm hover:bg-cream transition">حذف
+                        همهٔ فیلترها</button>
+                    <button id="sidebar-done"
+                        class="lg:hidden w-full mt-4 h-12 rounded-xl bg-gold text-forest font-black text-sm">نمایش
+                        محصولات</button>
+                </div>
+            </aside>
+
+            <!-- نوار ابزار + گرید -->
+            <div class="min-w-0">
+                <div class="flex flex-wrap items-center gap-3 mb-6">
+                    <button id="btn-filters"
+                        class="lg:hidden inline-flex items-center gap-2 border border-forest/15 bg-white rounded-xl px-4 py-2.5 text-sm font-bold text-forest shadow-card"><i
+                            data-lucide="filter" class="w-4 h-4 text-goldd"></i> فیلترها</button>
+                    <p class="text-sm text-forest/60"><span id="result-count"
+                            class="font-black text-forest text-base">۰</span> محصول یافت شد</p>
+                    <div id="q-chip"></div>
+                    <div class="mr-auto flex items-center gap-2">
+                        <div
+                            class="view-toggle hidden sm:flex border border-forest/15 rounded-xl overflow-hidden bg-white shadow-card">
+                            <button data-view="grid" class="vt-btn active" title="نمایش گرید" aria-label="نمایش گرید"><i
+                                    data-lucide="layout-grid" class="w-4 h-4"></i></button>
+                            <button data-view="list" class="vt-btn" title="نمایش لیست" aria-label="نمایش لیست"><i
+                                    data-lucide="list" class="w-4 h-4"></i></button>
+                        </div>
+                        <select id="sort-select" class="sel-input">
+                            <option value="newest">جدیدترین</option>
+                            <option value="cheap">ارزان‌ترین</option>
+                            <option value="expensive">گران‌ترین</option>
+                            <option value="discount">پرتخفیف‌ترین</option>
+                            <option value="bestseller">پرفروش‌ترین</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="shop-grid" class="grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5"></div>
+                <div id="pagination" class="mt-10 flex flex-wrap justify-center gap-2"></div>
+            </div>
+        </div>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="assets/js/products-data.js"></script>
+    <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

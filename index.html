@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>روغنکده رئوف | طعم اصالت، از دل طبیعت</title>
+    <meta name="description"
+        content="فروش آنلاین روغن‌های گیاهی و درمانی، کره‌های اجیلی، شیره‌جات، رب انار، عرقیجات و محصولات سنتی — روغنکده رئوف">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23E4B027' d='M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2Z'/></svg>">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+    <!-- <script src="assets/js/tailwind-config.js"></script> -->
+     <link rel="stylesheet" href="assets/css/output.css">
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+</head>
+
+<body data-page="home" class="bg-cream text-forest overflow-x-hidden antialiased">
+
+    <div id="site-header"></div>
+
+    <main>
+        <!-- ۱) هیرو: اسلایدر بنر -->
+        <section id="hero" class="relative bg-forest text-cream overflow-hidden">
+            <div class="absolute inset-0 pattern-dots opacity-60 pointer-events-none"></div>
+            <div class="absolute -top-28 -left-24 w-96 h-96 rounded-full border border-gold/15 pointer-events-none">
+            </div>
+            <div
+                class="absolute top-1/3 -right-36 w-[28rem] h-[28rem] rounded-full border border-gold/10 pointer-events-none">
+            </div>
+
+            <div class="relative max-w-7xl mx-auto px-4">
+                <!-- اسلایدها با JS رندر می‌شوند (رو-هم-افتاده با grid) -->
+                <div id="hero-slides" class="grid"></div>
+
+                <div class="relative flex items-center justify-between gap-4 pb-10 lg:pb-14">
+                    <span
+                        class="hidden sm:inline-flex items-center gap-2 text-gold/90 text-xs font-bold bg-gold/10 border border-gold/25 rounded-full px-4 py-2">
+                        <i data-lucide="badge-percent" class="w-4 h-4"></i>
+                        ۱۰٪ تخفیف اولین خرید با کد <b dir="ltr">RAOUF10</b>
+                    </span>
+                    <div class="flex items-center gap-3">
+                        <button id="hero-prev" class="h-btn" aria-label="اسلاید قبلی"><i data-lucide="chevron-right"
+                                class="w-5 h-5"></i></button>
+                        <div id="hero-dots" class="flex gap-2"></div>
+                        <button id="hero-next" class="h-btn" aria-label="اسلاید بعدی"><i data-lucide="chevron-left"
+                                class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۲) دسته‌بندی محصولات -->
+        <section class="py-16 lg:py-20">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center max-w-xl mx-auto reveal">
+                    <span class="section-kicker">دسته‌بندی‌ها</span>
+                    <h2 class="section-title">هرچه از طبیعت می‌خواهید، یک‌جا</h2>
+                    <p class="section-sub">۱۳ دستهٔ محصولات سنتی و ارگانیک؛ از روغن سردپرس تا عرقیجات و خشکبار درجه‌یک.
+                    </p>
+                </div>
+                <div id="cats-grid"
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 mt-10"></div>
+            </div>
+        </section>
+
+        <!-- ۳) کاروسل جدیدترین محصولات -->
+        <section class="pb-16 lg:pb-20">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex items-end justify-between gap-4 mb-7 reveal">
+                    <div>
+                        <span class="section-kicker">تازه رسیده‌ها</span>
+                        <h2 class="section-title !mt-2">جدیدترین محصولات</h2>
+                    </div>
+                    <div class="flex gap-2 shrink-0">
+                        <button class="c-btn" data-prev data-target="#track-new" aria-label="قبلی"><i
+                                data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                        <button class="c-btn" data-next data-target="#track-new" aria-label="بعدی"><i
+                                data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+                <div id="track-new"
+                    class="carousel-track no-scrollbar flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 pt-1">
+                </div>
+            </div>
+        </section>
+
+        <!-- ۴) CTA شماره ۱: جشنواره -->
+        <section class="pb-16 lg:pb-20">
+            <div class="max-w-7xl mx-auto px-4">
+                <div
+                    class="reveal relative overflow-hidden bg-forest text-cream rounded-3xl px-6 py-12 sm:p-14 lg:p-16">
+                    <div class="absolute inset-0 pattern-dots opacity-70 pointer-events-none"></div>
+                    <div
+                        class="absolute -bottom-24 -left-16 w-72 h-72 rounded-full border border-gold/25 pointer-events-none">
+                    </div>
+                    <div class="relative grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+                        <div>
+                            <span
+                                class="inline-flex bg-brick text-white text-xs font-black rounded-full px-3.5 py-1.5">تا
+                                ۲۰٪ تخفیف</span>
+                            <h2 class="mt-4 text-2xl sm:text-4xl font-black gold-grad-text leading-snug">جشنوارهٔ
+                                پاییزهٔ روغنکده</h2>
+                            <p class="mt-3 text-cream/70 max-w-lg leading-8">روغن‌های درمانی، رب انار و اردهٔ سنتی با
+                                بهترین قیمت سال؛ فرصت محدود تا پایان فصل.</p>
+                        </div>
+                        <a href="shop.html?sort=discount"
+                            class="btn-gold justify-self-start lg:justify-self-end">مشاهدهٔ تخفیف‌ها <i
+                                data-lucide="arrow-left" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۵) کاروسل پرفروش‌ترین‌ها -->
+        <section class="py-16 lg:py-20 bg-sand/60">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex items-end justify-between gap-4 mb-7 reveal">
+                    <div>
+                        <span class="section-kicker">محبوب مشتریان</span>
+                        <h2 class="section-title !mt-2">پرفروش‌ترین محصولات</h2>
+                    </div>
+                    <div class="flex gap-2 shrink-0">
+                        <button class="c-btn" data-prev data-target="#track-best" aria-label="قبلی"><i
+                                data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                        <button class="c-btn" data-next data-target="#track-best" aria-label="بعدی"><i
+                                data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+                <div id="track-best"
+                    class="carousel-track no-scrollbar flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 pt-1">
+                </div>
+            </div>
+        </section>
+
+        <!-- ۶) دربارهٔ فروشگاه (بخش اول) -->
+        <section class="py-16 lg:py-20">
+            <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div class="reveal relative">
+                    <div class="rounded-3xl overflow-hidden shadow-soft">
+                        <img src="https://placehold.co/720x560/1E4D31/EFE7D3?text=Our+Workshop"
+                            alt="کارگاه تولید سنتی روغنکده رئوف" class="w-full h-72 sm:h-96 object-cover">
+                    </div>
+                    <div
+                        class="absolute -bottom-6 right-4 sm:right-8 bg-gold text-forest rounded-2xl px-5 py-4 shadow-soft flex items-center gap-3">
+                        <span class="text-3xl font-black">۱۸+</span>
+                        <span class="text-xs font-bold leading-5">سال تجربهٔ<br>تولید سنتی</span>
+                    </div>
+                    <div
+                        class="absolute -top-5 -left-3 w-24 h-24 rounded-2xl overflow-hidden border-4 border-cream shadow-soft hidden sm:block">
+                        <img src="https://placehold.co/240x240/B9871B/FFF8E7?text=Since+1375" alt="برچسب سنتی"
+                            class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="reveal">
+                    <span class="section-kicker">درباره روغنکده</span>
+                    <h2 class="section-title">سه نسل، یک عطر: روایت روغنکدهٔ رئوف</h2>
+                    <p class="mt-4 text-forest/70 leading-9">از سال ۱۳۷۵، وقتی حاج‌قربان رئوف اولین دیگ کنجد را در
+                        کارگاه کوچک رفسنجان روشن کرد، قانونی ساده اما سخت در خانوادهٔ ما جاری شد: «چیزی که خودمان
+                        نمی‌خوریم، نمی‌فروشیم.» امروز نسل سوم همین خانواده، با همان روش‌های سنتی و نظارت بهداشتی مدرن،
+                        محصولات روغنکده را به خانه‌های شما می‌رسانیم.</p>
+                    <ul class="mt-6 space-y-3.5">
+                        <li class="flex items-start gap-3 text-sm text-forest/80"><span
+                                class="w-6 h-6 rounded-full bg-gold/15 text-goldd grid place-items-center shrink-0 mt-0.5"><i
+                                    data-lucide="check" class="w-3.5 h-3.5"></i></span>پرس سرد و سنتی؛ بدون حرارت و حلال
+                            شیمیایی</li>
+                        <li class="flex items-start gap-3 text-sm text-forest/80"><span
+                                class="w-6 h-6 rounded-full bg-gold/15 text-goldd grid place-items-center shrink-0 mt-0.5"><i
+                                    data-lucide="check" class="w-3.5 h-3.5"></i></span>بدون رنگ، اسانس، شکر افزوده و
+                            نگهدارندهٔ مصنوعی</li>
+                        <li class="flex items-start gap-3 text-sm text-forest/80"><span
+                                class="w-6 h-6 rounded-full bg-gold/15 text-goldd grid place-items-center shrink-0 mt-0.5"><i
+                                    data-lucide="check" class="w-3.5 h-3.5"></i></span>بسته‌بندی بهداشتی شیشه‌ای با درب
+                            قفل‌دار</li>
+                        <li class="flex items-start gap-3 text-sm text-forest/80"><span
+                                class="w-6 h-6 rounded-full bg-gold/15 text-goldd grid place-items-center shrink-0 mt-0.5"><i
+                                    data-lucide="check" class="w-3.5 h-3.5"></i></span>تضمین اصالت کالا یا بازگشت کامل
+                            وجه</li>
+                    </ul>
+                    <a href="about.html" class="btn-outline mt-8">بیشتر دربارهٔ ما <i data-lucide="arrow-left"
+                            class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۷) CTA شماره ۲: خدمات اعتمادساز -->
+        <section class="py-16 lg:py-20 bg-cream">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center max-w-xl mx-auto reveal">
+                    <span class="section-kicker">چرا روغنکده؟</span>
+                    <h2 class="section-title">خریدی که خیالتان راحت است</h2>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-10">
+                    <div
+                        class="reveal bg-white rounded-2xl p-6 border border-forest/10 shadow-card hover:border-gold/50 hover:shadow-soft hover:-translate-y-1 transition duration-300">
+                        <span class="w-14 h-14 rounded-full bg-cream border border-gold/30 grid place-items-center"><i
+                                data-lucide="truck" class="w-6 h-6 text-goldd"></i></span>
+                        <h3 class="mt-4 font-black text-forest">ارسال سریع</h3>
+                        <p class="mt-2 text-sm text-forest/60 leading-7">تحویل ۲۴ تا ۷۲ ساعته در سراسر کشور؛ رایگان برای
+                            خرید بالای ۵۰۰ هزار تومان.</p>
+                    </div>
+                    <div
+                        class="reveal bg-white rounded-2xl p-6 border border-forest/10 shadow-card hover:border-gold/50 hover:shadow-soft hover:-translate-y-1 transition duration-300">
+                        <span class="w-14 h-14 rounded-full bg-cream border border-gold/30 grid place-items-center"><i
+                                data-lucide="shield-check" class="w-6 h-6 text-goldd"></i></span>
+                        <h3 class="mt-4 font-black text-forest">ضمانت اصالت</h3>
+                        <p class="mt-2 text-sm text-forest/60 leading-7">اصالت تمام محصولات تضمین شده است؛ در غیر این
+                            صورت وجه شما کامل بازگردانده می‌شود.</p>
+                    </div>
+                    <div
+                        class="reveal bg-white rounded-2xl p-6 border border-forest/10 shadow-card hover:border-gold/50 hover:shadow-soft hover:-translate-y-1 transition duration-300">
+                        <span class="w-14 h-14 rounded-full bg-cream border border-gold/30 grid place-items-center"><i
+                                data-lucide="credit-card" class="w-6 h-6 text-goldd"></i></span>
+                        <h3 class="mt-4 font-black text-forest">پرداخت امن</h3>
+                        <p class="mt-2 text-sm text-forest/60 leading-7">پرداخت از طریق درگاه امن بانکی و امکان پرداخت
+                            در محل برای شهرهای منتخب.</p>
+                    </div>
+                    <div
+                        class="reveal bg-white rounded-2xl p-6 border border-forest/10 shadow-card hover:border-gold/50 hover:shadow-soft hover:-translate-y-1 transition duration-300">
+                        <span class="w-14 h-14 rounded-full bg-cream border border-gold/30 grid place-items-center"><i
+                                data-lucide="headphones" class="w-6 h-6 text-goldd"></i></span>
+                        <h3 class="mt-4 font-black text-forest">پشتیبانی ۲۴ ساعته</h3>
+                        <p class="mt-2 text-sm text-forest/60 leading-7">مشاورهٔ رایگان انتخاب محصول؛ هر ساعت از
+                            شبانه‌روز پاسخگوی شما هستیم.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۸) کاروسل پرتخفیف‌ترین‌ها -->
+        <section class="py-16 lg:py-20">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex items-end justify-between gap-4 mb-7 reveal">
+                    <div>
+                        <span class="section-kicker">فرصت محدود</span>
+                        <h2 class="section-title !mt-2">پرتخفیف‌ترین محصولات</h2>
+                    </div>
+                    <div class="flex gap-2 shrink-0">
+                        <button class="c-btn" data-prev data-target="#track-off" aria-label="قبلی"><i
+                                data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                        <button class="c-btn" data-next data-target="#track-off" aria-label="بعدی"><i
+                                data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+                <div id="track-off"
+                    class="carousel-track no-scrollbar flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 pt-1">
+                </div>
+            </div>
+        </section>
+
+        <!-- ۹) آمار برند + نظرات مشتریان -->
+        <section class="relative bg-forest text-cream py-14 lg:py-20 overflow-hidden">
+            <div class="absolute inset-0 pattern-dots opacity-50 pointer-events-none"></div>
+            <div class="relative max-w-7xl mx-auto px-4 grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="reveal">
+                    <p class="text-4xl lg:text-5xl font-black text-gold" data-count="18" data-suffix="+">۰</p>
+                    <p class="mt-2 text-cream/60 text-sm">سال تجربهٔ تولید</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-4xl lg:text-5xl font-black text-gold" data-count="120" data-suffix="+">۰</p>
+                    <p class="mt-2 text-cream/60 text-sm">نوع محصول متنوع</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-4xl lg:text-5xl font-black text-gold" data-count="52000" data-suffix="+">۰</p>
+                    <p class="mt-2 text-cream/60 text-sm">مشتری راضی در سراسر ایران</p>
+                </div>
+                <div class="reveal">
+                    <p class="text-4xl lg:text-5xl font-black text-gold" data-count="98" data-suffix="٪">۰</p>
+                    <p class="mt-2 text-cream/60 text-sm">رضایت از خرید مجدد</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 lg:py-20">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center max-w-xl mx-auto reveal">
+                    <span class="section-kicker">تجربهٔ خرید</span>
+                    <h2 class="section-title">آنچه مشتریان ما می‌گویند</h2>
+                </div>
+                <div class="max-w-3xl mx-auto mt-10 reveal">
+                    <div id="t-slider" class="grid"></div>
+                    <div class="mt-6 flex items-center justify-center gap-3">
+                        <button id="t-prev" class="c-btn" aria-label="قبلی"><i data-lucide="chevron-right"
+                                class="w-4 h-4"></i></button>
+                        <div id="t-dots" class="flex gap-2"></div>
+                        <button id="t-next" class="c-btn" aria-label="بعدی"><i data-lucide="chevron-left"
+                                class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ۱۰) آخرین مقالات -->
+        <section id="articles" class="py-16 lg:py-20 bg-sand/60">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="flex items-end justify-between gap-4 mb-7 reveal">
+                    <div>
+                        <span class="section-kicker">مجلهٔ روغنکده</span>
+                        <h2 class="section-title !mt-2">آخرین مقالات</h2>
+                    </div>
+                    <div class="flex gap-2 shrink-0">
+                        <button class="c-btn" data-prev data-target="#track-articles" aria-label="قبلی"><i
+                                data-lucide="chevron-right" class="w-5 h-5"></i></button>
+                        <button class="c-btn" data-next data-target="#track-articles" aria-label="بعدی"><i
+                                data-lucide="chevron-left" class="w-5 h-5"></i></button>
+                    </div>
+                </div>
+                <div id="track-articles"
+                    class="carousel-track no-scrollbar flex gap-4 sm:gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory pb-2 pt-1">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="assets/js/products-data.js"></script>
+    <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
