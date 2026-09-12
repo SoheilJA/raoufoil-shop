@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مجله روغنکده | روغنکده رئوف</title>
+    <meta name="description" content="مقالات آموزشی درباره محصولات سنتی، نکات نگهداری و خواص روغن‌های طبیعی — مجله روغنکده رئوف">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23E4B027' d='M12 2C12 2 5 10 5 15a7 7 0 0 0 14 0C19 10 12 2 12 2Z'/></svg>">
+    <link rel="stylesheet" href="assets/css/output.css">
+</head>
+
+<body data-page="blog" class="bg-cream text-forest overflow-x-hidden antialiased">
+
+    <div id="site-header"></div>
+
+    <main>
+        <!-- هیروی کوچک -->
+        <section class="relative bg-forest text-cream overflow-hidden">
+            <div class="absolute inset-0 pattern-dots opacity-60 pointer-events-none"></div>
+            <div class="relative max-w-7xl mx-auto px-4 py-10 lg:py-14">
+                <nav class="flex items-center gap-2 text-xs text-cream/60">
+                    <a href="index.html" class="hover:text-gold">خانه</a>
+                    <i data-lucide="chevron-left" class="w-3.5 h-3.5"></i>
+                    <span class="text-gold font-bold">مجله روغنکده</span>
+                </nav>
+                <h1 class="mt-4 text-3xl lg:text-4xl font-black gold-grad-text">مجله روغنکده</h1>
+                <p class="mt-3 text-cream/70 max-w-xl leading-8 text-sm sm:text-base">نکات نگهداری، خواص محصولات سنتی و
+                    دستورپخت‌های اصیل ایرانی را در مجله روغنکده بخوانید.</p>
+            </div>
+        </section>
+
+        <!-- گرید مقالات -->
+        <section class="py-16 lg:py-20">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center max-w-xl mx-auto reveal">
+                    <span class="section-kicker">آخرین مقالات</span>
+                    <h2 class="section-title">دانش و تجربهٔ سه نسل تولید سنتی</h2>
+                    <p class="section-sub">مقالات تخصصی درباره روغن‌های گیاهی، روش‌های سنتی تولید، نکات نگهداری و
+                        خواص درمانی محصولات طبیعی.</p>
+                </div>
+
+                <!-- فیلتر دسته‌بندی -->
+                <div class="flex flex-wrap justify-center gap-2 mt-10 reveal">
+                    <button class="blog-filter active" data-filter="all">همه مقالات</button>
+                    <button class="blog-filter" data-filter="سلامت و تغذیه">سلامت و تغذیه</button>
+                    <button class="blog-filter" data-filter="نگهداری محصولات">نگهداری محصولات</button>
+                    <button class="blog-filter" data-filter="گیاهان دارویی">گیاهان دارویی</button>
+                    <button class="blog-filter" data-filter="آشپزی سنتی">آشپزی سنتی</button>
+                </div>
+
+                <!-- گرید مقالات -->
+                <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10"></div>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+
+    <script src="assets/js/products-data.js"></script>
+    <script src="https://unpkg.com/lucide@0.462.0/dist/umd/lucide.min.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

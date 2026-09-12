@@ -10,9 +10,9 @@ const PAGE = document.body.dataset.page || 'home';
 const NAV = [
   { href: 'index.html', label: 'خانه', page: 'home' },
   { href: 'shop.html', label: 'فروشگاه', page: 'shop' },
+  { href: 'blog.html', label: 'مجله', page: 'blog' },
   { href: 'about.html', label: 'درباره ما', page: 'about' },
   { href: 'contact.html', label: 'تماس با ما', page: 'contact' },
-  { href: 'index.html#articles', label: 'مقالات', page: 'articles' },
 ];
 
 function renderHeader() {
@@ -257,12 +257,8 @@ function closeModal() {
   if (m && !m.classList.contains('hidden')) { m.classList.add('hidden'); document.body.style.overflow = ''; }
 }
 function openArticle(id) {
-  const a = ARTICLES.find(x => x.id === id);
-  if (!a) return;
-  openModal(a.title, `
-    <img src="${a.img}" alt="${a.title}" class="w-full h-52 sm:h-64 object-cover rounded-xl mb-5">
-    <p class="flex items-center gap-2 text-xs text-forest/50 font-bold mb-4"><i data-lucide="calendar" class="w-4 h-4"></i>${a.date} · ${a.min} دقیقه مطالعه · ${a.cat}</p>
-    ${a.body.map(p => `<p class="mt-3 first:mt-0">${p}</p>`).join('')}`);
+  // هدایت به صفحه مقاله تکی به جای پاپ‌آپ
+  location.href = `article.html?id=${id}`;
 }
 
 /* ─────────── ۴) کارت محصول + کاروسل ─────────── */
@@ -833,7 +829,146 @@ function initContact() {
   });
 }
 
-/* ─────────── ۹) رویدادهای سراسری ─────────── */
+/* ─────────── ۸) صفحهٔ بلاگ ─────────── */
+function initBlog() {
+  let activeFilter = 'all';
+
+  function renderArticles() {
+    const list = activeFilter === 'all'
+      ? ARTICLES
+      : ARTICLES.filter(a => a.cat === activeFilter);
+
+    const grid = $('#blog-grid');
+    grid.innerHTML = list.length
+      ? list.map(a => `
+        <article class="blog-card reveal">
+          <a href="article.html?id=${a.id}" class="block">
+            <div class="blog-card-img">
+              <img src="${a.img}" alt="${a.title}">
+            </div>
+            <div class="p-5">
+              <div class="flex items-center gap-2 text-xs text-forest/50">
+                <span class="bg-gold/15 text-goldd font-bold px-3 py-1 rounded-full">${a.cat}</span>
+                <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3.5 h-3.5"></i>${a.date}</span>
+                <span class="flex items-center gap-1"><i data-lucide="clock" class="w-3.5 h-3.5"></i>${a.min} دقیقه</span>
+              </div>
+              <h3 class="mt-3 font-black text-forest leading-8 line-clamp-2">${a.title}</h3>
+              <p class="mt-2 text-sm text-forest/60 leading-7 line-clamp-2">${a.summary}</p>
+              <span class="mt-4 inline-flex items-center gap-1.5 text-goldd font-black text-sm hover:gap-3 transition-all">
+                ادامه مطلب <i data-lucide="arrow-left" class="w-4 h-4"></i>
+              </span>
+            </div>
+          </a>
+        </article>`).join('')
+      : `<div class="col-span-2 md:col-span-3 bg-white rounded-2xl shadow-card p-14 text-center">
+          <span class="w-16 h-16 rounded-full bg-cream border border-forest/10 grid place-items-center mx-auto"><i data-lucide="file-text" class="w-7 h-7 text-forest/30"></i></span>
+          <p class="mt-5 font-black text-forest">مقاله‌ای در این دسته‌بندی یافت نشد</p>
+          <p class="mt-1.5 text-sm text-forest/55">دسته‌بندی دیگری را انتخاب کنید.</p>
+        </div>`;
+
+    refreshIcons();
+    initReveal();
+  }
+
+  // فیلترها
+  $$('.blog-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeFilter = btn.dataset.filter;
+      $$('.blog-filter').forEach(b => b.classList.toggle('active', b === btn));
+      renderArticles();
+    });
+  });
+
+  renderArticles();
+}
+
+/* ─────────── ۹) صفحهٔ مقاله تکی ─────────── */
+function initArticle() {
+  const id = Number(new URLSearchParams(location.search).get('id'));
+  const a = ARTICLES.find(x => x.id === id);
+
+  if (!a) {
+    $('#article-root').innerHTML = `
+    <div class="bg-white rounded-2xl shadow-card p-14 text-center max-w-lg mx-auto">
+      <span class="w-16 h-16 rounded-full bg-brick/10 text-brick grid place-items-center mx-auto"><i data-lucide="file-text" class="w-8 h-8"></i></span>
+      <h1 class="mt-5 text-xl font-black text-forest">مقاله مورد نظر پیدا نشد</h1>
+      <p class="mt-2 text-sm text-forest/60">ممکن است آدرس اشتباه باشد یا این مقاله حذف شده باشد.</p>
+      <a href="blog.html" class="btn-gold mt-6 !py-3 !px-6 text-sm">بازگشت به مجله</a>
+    </div>`;
+    refreshIcons();
+    return;
+  }
+
+  document.title = `${a.title} | روغنکده رئوف`;
+
+  $('#article-root').innerHTML = `
+  <!-- مسیر (breadcrumb) -->
+  <nav class="flex items-center gap-2 text-xs sm:text-sm text-forest/55 flex-wrap">
+    <a href="index.html" class="hover:text-goldd transition">خانه</a>
+    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+    <a href="blog.html" class="hover:text-goldd transition">مجله روغنکده</a>
+    <i data-lucide="chevron-left" class="w-4 h-4"></i>
+    <span class="text-forest font-bold">${a.cat}</span>
+  </nav>
+
+  <!-- تصویر اصلی -->
+  <div class="mt-6 rounded-3xl overflow-hidden shadow-soft">
+    <img src="${a.img}" alt="${a.title}" class="w-full h-64 sm:h-80 lg:h-96 object-cover">
+  </div>
+
+  <!-- محتوای مقاله -->
+  <div class="mt-8">
+    <div class="flex items-center gap-3 flex-wrap">
+      <span class="bg-gold/15 text-goldd font-bold text-sm px-4 py-1.5 rounded-full">${a.cat}</span>
+      <span class="flex items-center gap-1.5 text-sm text-forest/50"><i data-lucide="calendar" class="w-4 h-4"></i>${a.date}</span>
+      <span class="flex items-center gap-1.5 text-sm text-forest/50"><i data-lucide="clock" class="w-4 h-4"></i>${a.min} دقیقه مطالعه</span>
+    </div>
+
+    <h1 class="mt-6 text-2xl sm:text-3xl lg:text-4xl font-black text-forest leading-snug">${a.title}</h1>
+
+    <p class="mt-4 text-lg text-forest/70 leading-9">${a.summary}</p>
+
+    <div class="mt-8 prose prose-lg max-w-none">
+      ${a.body.map(p => `<p class="mt-6 text-forest/80 leading-9 text-[15px]">${p}</p>`).join('')}
+    </div>
+
+    <!-- اشتراک‌گذاری -->
+    <div class="mt-10 pt-8 border-t border-forest/10">
+      <p class="font-black text-forest mb-4">اشتراک‌گذاری مقاله</p>
+      <div class="flex gap-2">
+        <a href="#" class="w-10 h-10 rounded-xl bg-forest/5 border border-forest/10 grid place-items-center hover:bg-gold hover:text-forest hover:border-gold transition"><i data-lucide="share-2" class="w-4 h-4"></i></a>
+        <a href="#" class="w-10 h-10 rounded-xl bg-forest/5 border border-forest/10 grid place-items-center hover:bg-gold hover:text-forest hover:border-gold transition"><i data-lucide="link" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+
+    <!-- مقالات مرتبط -->
+    <div class="mt-12">
+      <div class="flex items-end justify-between gap-4 mb-7">
+        <div>
+          <span class="section-kicker">پیشنهاد مطالعه</span>
+          <h2 class="section-title !mt-2">مقالات مرتبط</h2>
+        </div>
+        <a href="blog.html" class="btn-outline text-sm">همه مقالات</a>
+      </div>
+      <div class="grid md:grid-cols-2 gap-5">
+        ${ARTICLES.filter(x => x.id !== a.id).slice(0, 2).map(x => `
+        <a href="article.html?id=${x.id}" class="blog-card group">
+          <div class="blog-card-img">
+            <img src="${x.img}" alt="${x.title}">
+          </div>
+          <div class="p-4">
+            <span class="text-[11px] font-bold text-goldd">${x.cat}</span>
+            <h3 class="mt-2 font-black text-forest leading-7 line-clamp-2 group-hover:text-moss transition">${x.title}</h3>
+          </div>
+        </a>`).join('')}
+      </div>
+    </div>
+  </div>`;
+
+  refreshIcons();
+}
+
+/* ─────────── ۱۰) رویدادهای سراسری ─────────── */
 function initGlobalEvents() {
   // افزودن سریع به سبد (دکمه‌های data-add داخل کارت‌های لینک‌دار)
   document.addEventListener('click', e => {
@@ -855,6 +990,8 @@ switch (PAGE) {
   case 'shop': initShop(); break;
   case 'product': initProduct(); break;
   case 'contact': initContact(); break;
+  case 'blog': initBlog(); break;
+  case 'article': initArticle(); break;
 }
 initReveal();
 initCounters();
